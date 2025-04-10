@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>歡迎來到遊戲專區</title>
-  <link rel="stylesheet" href="css/simple.css"> <!-- 保留你原本的外部 CSS -->
+  <link rel="stylesheet" href="../css/simple.css"> <!-- 保留你原本的外部 CSS -->
   <style>
     .slot-machine {
       display: flex;
       justify-content: center;
       margin: 20px;
     }
+
     .slot {
       width: 100px;
       height: 100px;
@@ -24,6 +26,7 @@
       overflow: hidden;
       position: relative;
     }
+
     .slot span {
       display: block;
       position: absolute;
@@ -32,16 +35,25 @@
       transform: translate(-50%, -50%);
       transition: transform 1s ease-in-out;
     }
+
     .spinning {
       animation: spin 0.1s linear infinite;
     }
+
     @keyframes spin {
-      0% { transform: translate(-50%, -150%); }
-      100% { transform: translate(-50%, 150%); }
+      0% {
+        transform: translate(-50%, -150%);
+      }
+
+      100% {
+        transform: translate(-50%, 150%);
+      }
     }
+
     .stopped {
       animation: none;
     }
+
     .btn {
       padding: 10px 20px;
       font-size: 18px;
@@ -50,20 +62,22 @@
       color: white;
       border: none;
     }
+
     .btn:disabled {
       background: #ccc;
       cursor: not-allowed;
     }
   </style>
 </head>
+
 <body>
   <header>
     <nav>
-      <a href="index.html">簡歷</a>
-      <a href="story.html">故事</a>
-      <a href="blog/index.html">技能專區</a>
-      <a href="resume.html">學習歷程</a>
-      <a href="fun.html" aria-current="page">Fun!</a>
+      <a href="../index.html">簡歷</a>
+      <a href="../story.html">故事</a>
+      <a href="../index.html">技能專區</a>
+      <a href="../resume.html">學習歷程</a>
+      <a href="game.html" aria-current="page">Fun!</a>
     </nav>
   </header>
 
@@ -103,7 +117,7 @@
 
       // 隨機選擇第一個滾輪的結果
       const random1 = items[Math.floor(Math.random() * items.length)];
-      
+
       // 第二個和第三個滾輪有 50% 機率跟隨第一個滾輪
       const random2 = Math.random() < 0.5 ? random1 : items[Math.floor(Math.random() * items.length)];
       const random3 = Math.random() < 0.5 ? random1 : items[Math.floor(Math.random() * items.length)];
@@ -139,4 +153,5 @@
     }
   </script>
 </body>
+
 </html>
