@@ -68,29 +68,38 @@
       cursor: not-allowed;
     }
 
+    .button-container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin: 20px 0;
+    }
+    
+    /* 較小的返回按鈕樣式 */
     .back-link {
-  display: inline-block;
-  padding: 0 8px;
-  border: 2px solid #333;
-  border-radius: 8px;
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-  background-color: #f9f9f9;
-  text-align: center;
-  line-height: 1.5;
-  transition: background-color 0.3s ease;
-}
+      display: inline-block;
+      padding: 4px 12px; /* 減小內邊距 */
+      border: 1px solid #0052cc; /* 使用較細的邊框和藍色 */
+      border-radius: 4px; /* 減小邊框圓角 */
+      text-decoration: none;
+      color: white;
+      font-weight: normal; /* 調整字體粗細 */
+      font-size: 14px; /* 減小字體大小 */
+      background-color: #0066cc; /* 使用藍色背景 */
+      text-align: center;
+      line-height: 1.5;
+      transition: background-color 0.3s ease;
+      width: fit-content; /* 讓按鈕寬度適應內容 */
+    }
 
-.back-link:hover {
-  background-color: #e0e0e0;
-}
+    .back-link:hover {
+      background-color: #004c99; /* 懸停時的顏色變化 */
+    }
 
-.arrow {
-  font-weight: 900;
-  font-size: 1.2em;
-  margin-right: 4px;
-}
+    .arrow {
+      font-weight: 900;
+      margin-right: 4px;
+    }
 
   </style>
 
@@ -116,8 +125,14 @@
   <div style="text-align: center;">
     <button class="btn" id="spinBtn" onclick="spin()">拉霸！</button>
     <div id="result" style="height: 2em; font-size: 1.5em; margin-top: 10px;"></div>
-
   </div>
+
+  <blockquote>
+    "「甜甜圈、蛋糕、冰淇淋～拉一次，笑一次，甜到心坎裡！」"💖🧁
+    <br>
+    <cite>— 我，對甜點的熱愛</cite>
+</blockquote>
+
   <a href="game.html" class="button back-link"><span class="arrow">⬅</span> 回到上一頁 ヾ(￣▽￣) Bye~</a>
 
   

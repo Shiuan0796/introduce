@@ -6,6 +6,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>歡迎來到甜點世界</title>
     <link rel="stylesheet" href="../css/simple.css"> <!-- 引入 CSS 檔案 -->
+    <style>
+        /* 添加置中樣式 */
+        .centered-title {
+            text-align: center;
+            width: 100%;
+            display: block;
+        }
+
+        /* 確保連結保持其原有樣式 */
+        .centered-title a {
+            /* 保持連結顏色與原有樣式一致 */
+            color: inherit;
+            /* 這裡使用 inherit 繼承父元素的顏色 */
+            /* 如果需要明確指定顏色，可以使用這個：
+            color: #0366d6; 或其他需要的顏色值 */
+            text-decoration: inherit;
+            /* 保持原有的文本裝飾 */
+        }
+
+        /* 保持連結懸停樣式 */
+        .centered-title a:hover {
+            /* 保持懸停時的效果 */
+            text-decoration: underline;
+            /* 或其他你原本的懸停效果 */
+            /* 如果需要懸停時的顏色，可以加上：
+            color: #0056b3; 或其他需要的懸停顏色 */
+        }
+
+        /* 讓整個 article 都能點擊 */
+        .article-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        /* Optional: 添加 hover 效果讓使用者知道可以點 */
+        .article-link:hover article {
+            background-color: #f9f9f9;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: 0.2s ease-in-out;
+        }
+
+        article hr {
+            border: none;
+            border-top: 2px dashed #ccc;
+            margin: 10px auto;
+            width: 60%;
+        }
+
+        .date-right {
+            text-align: right;
+            margin: 0;
+            padding: 0;
+        }
+        .text-center {
+    text-align: center;
+}
+
+    </style>
 </head>
 
 <body>
@@ -19,23 +79,27 @@
             <a href="game.html" aria-current="page">Fun!</a>
         </nav>
         <h1>遊戲專區</h1>
-        
+
     </header>
     <main>
         <section>
             <img src="../images/423737894_280917855093997_6828194663656466179_n (1).jpg" alt="遊戲頁面照片"
                 class="image-banner" />
         </section>
+        <a href="slot.html" class="article-link">
+            <article>
+                <h2 class="centered-title">🎰拉霸機🎰</h2>
+                <hr>
+                <p class="text-center">
+                    <strong>嘗試挑戰設計拉霸機遊戲，沒想到轉啊轉的，竟然轉出滿滿成就感？！🎰✨</strong>
+                </p>
 
-        <article>
-            <h2>
-                <a href="slot.html">拉霸機🎰</a>
-            </h2>
-            <p><time datetime="2025-4-14"></time>2025年4月14日</p>
-            <p>
-                <strong>嘗試挑戰設計拉霸機遊戲，沒想到轉啊轉的，竟然轉出滿滿成就感？！🎰✨</strong>
-            </p>
-        </article>
+                <p class="date-right"><time datetime="2025-4-14"></time>2025年4月14日</p>
+
+            </article>
+        </a>
+
+
         <article>
             <h2>
                 <a href=""></a>
