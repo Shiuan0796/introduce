@@ -69,21 +69,27 @@
     }
 
     .back-link {
-  display: inline-block; /* 保持 inline-block 使其根據文字自動調整大小 */
-  padding: 0 8px; /* 讓框跟文字貼合，並添加適當的左右 padding */
+  display: inline-block;
+  padding: 0 8px;
   border: 2px solid #333;
   border-radius: 8px;
   text-decoration: none;
   color: #333;
   font-weight: bold;
   background-color: #f9f9f9;
-  text-align: center; /* 將文字置中對齊 */
-  line-height: 1.5; /* 增加行高確保文字垂直居中 */
+  text-align: center;
+  line-height: 1.5;
   transition: background-color 0.3s ease;
 }
 
 .back-link:hover {
   background-color: #e0e0e0;
+}
+
+.arrow {
+  font-weight: 900;
+  font-size: 1.2em;
+  margin-right: 4px;
 }
 
   </style>
@@ -109,9 +115,11 @@
   </div>
   <div style="text-align: center;">
     <button class="btn" id="spinBtn" onclick="spin()">拉霸！</button>
-    <h2 id="result"></h2>
+    <div id="result" style="height: 2em; font-size: 1.5em; margin-top: 10px;"></div>
+
   </div>
-  <a href="index.html" class="back-link">&larr; 回到上一頁 ヾ(￣▽￣) Bye~</a>
+  <a href="game.html" class="button back-link"><span class="arrow">⬅</span> 回到上一頁 ヾ(￣▽￣) Bye~</a>
+
   
 
 
