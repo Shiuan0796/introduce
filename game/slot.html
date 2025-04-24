@@ -101,6 +101,16 @@
       margin-right: 4px;
     }
 
+    .game-container {
+  border: 2px solid #ccc; /* 淺灰色邊框 */
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto 30px;
+  background-color: #fdfdfd; /* 非粉色，略微柔和背景 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
   </style>
 
 </head>
@@ -117,6 +127,9 @@
   </header>
 
   <h1 style="text-align: center;">🎰 甜點拉霸遊戲 🎰</h1>
+
+<!-- 新增這層 div -->
+<div class="game-container">
   <div class="slot-machine">
     <div class="slot"><span id="slot1">🍩</span></div>
     <div class="slot"><span id="slot2">🍪</span></div>
@@ -126,6 +139,7 @@
     <button class="btn" id="spinBtn" onclick="spin()">拉霸！</button>
     <div id="result" style="height: 2em; font-size: 1.5em; margin-top: 10px;"></div>
   </div>
+</div>
 
   <blockquote>
     "「甜甜圈、蛋糕、冰淇淋～拉一次，笑一次，甜到心坎裡！」"💖🧁

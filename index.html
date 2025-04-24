@@ -18,41 +18,454 @@
       <a href="resume.html">學習歷程</a>
       <a href="game/game.html">Fun!</a>
     </nav>
-    <h1>甜點世界</h1>
-    <p>每一口甜點，都是對味蕾的溫柔擁抱，讓人瞬間忘記煩憂。</p>
   </header>
 
-  <!-- Main Content Section -->
-  <main>
-    <section>
-      <img src="images/20190322141539_91.webp" alt="甜點的照片" class="image-banner" />
-    </section>
+  <html lang="zh-Hant">
 
-    <section>
-      <p>
-        想看看更多蛋糕嗎？ <br />
-        <a href="https://www.85cafe.com/Product.php?datatid=8&datasid=16" class="button">點擊這裡探索更多甜點！</a>
-      </p>
-    </section>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>許筑瑄 - 個人履歷</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+      }
 
-    <section>
-      <h2>我最喜歡的蛋糕</h2>
-      <ul>
-        <li>粉漾莓果</li>
-        <li>莓果派對</li>
-        <li>草莓提拉米蘇</li>
-      </ul>
-    </section>
+      body {
+        background-color: #f2f2f2;
+        color: #333;
+      }
 
-    <section>
-      <h2>如何製作蛋糕</h2>
-      <ol>
-        <li>準備材料並混合</li>
-        <li>倒入模具並烘烤</li>
-        <li>冷卻與裝飾</li>
-      </ol>
-    </section>
-  </main>
+      .header-bar {
+        height: 12px;
+        background-color: #1abc9c;
+        width: 100%;
+      }
+
+      .container {
+        display: flex;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+
+
+      .left-column {
+        width: 30%;
+        padding: 30px;
+        background-color: #f9f9f9;
+        border-right: 1px solid #eee;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .right-column {
+        width: 70%;
+        padding: 30px;
+      }
+
+      .profile-img {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+        border: 3px solid #1abc9c;
+      }
+
+      .name-section {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .name-zh {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .name-en {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      .contact-section h3 {
+        font-size: 18px;
+        border-bottom: 2px solid #1abc9c;
+        padding-bottom: 8px;
+        margin-bottom: 15px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .contact-info {
+        width: 100%;
+        margin-bottom: 30px;
+      }
+
+      .contact-item {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+      }
+
+      .contact-label {
+        font-weight: bold;
+        margin-right: 8px;
+        font-size: 14px;
+        color: #555;
+        min-width: 40px;
+      }
+
+      .contact-value {
+        font-size: 14px;
+      }
+
+      .language-section {
+        width: 100%;
+      }
+
+      .language-item {
+        margin-bottom: 15px;
+      }
+
+      .language-name {
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+      }
+
+      .language-level {
+        color: #888;
+        font-size: 12px;
+      }
+
+      .progress-bar {
+        width: 100%;
+        height: 8px;
+        background-color: #e0e0e0;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background-color: #1abc9c;
+        border-radius: 4px;
+      }
+
+      .section {
+        margin-bottom: 30px;
+      }
+
+      .section-title {
+        font-size: 20px;
+        border-bottom: 2px solid #1abc9c;
+        padding-bottom: 8px;
+        margin-bottom: 20px;
+      }
+
+      .timeline-item {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 20px;
+        display: flex;
+      }
+
+      .timeline-item:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 6px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #1abc9c;
+      }
+
+      .timeline-period {
+        min-width: 140px;
+        font-weight: bold;
+        color: #666;
+        font-size: 14px;
+      }
+
+      .timeline-content {
+        flex: 1;
+      }
+
+      .timeline-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+        font-size: 16px;
+      }
+
+      .timeline-subtitle {
+        color: #666;
+        font-style: italic;
+        margin-bottom: 5px;
+        font-size: 14px;
+      }
+
+      .timeline-description {
+        font-size: 14px;
+        line-height: 1.5;
+        color: #444;
+      }
+
+      .skills-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+
+      .skill-group {
+        margin-bottom: 20px;
+      }
+
+      .skill-group-title {
+        font-weight: bold;
+        margin-bottom: 8px;
+        font-size: 16px;
+      }
+
+      .skill-list {
+        list-style-type: none;
+      }
+
+      .skill-list li {
+        position: relative;
+        padding-left: 15px;
+        margin-bottom: 6px;
+        font-size: 14px;
+      }
+
+      .skill-list li:before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #1abc9c;
+        font-weight: bold;
+      }
+
+      .achievement-item {
+        margin-bottom: 15px;
+      }
+
+      .achievement-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+        font-size: 16px;
+      }
+
+      .achievement-detail {
+        font-size: 14px;
+        color: #555;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+        }
+
+        .left-column,
+        .right-column {
+          width: 100%;
+        }
+
+        .skills-container {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="header-bar"></div>
+    <div class="container">
+      <div class="left-column">
+        <img src="/api/placeholder/400/400" alt="個人照片" class="profile-img">
+        <div class="name-section">
+          <div class="name-zh">許筑瑄</div>
+          <div class="name-en">Chu-Hsuan Hsu</div>
+        </div>
+
+        <div class="contact-section">
+          <h3>聯絡資訊</h3>
+          <div class="contact-info">
+            <div class="contact-item">
+              <span class="contact-label">生日</span>
+              <span class="contact-value">96年08月22日</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">電話</span>
+              <span class="contact-value">0909-769-887</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">信箱</span>
+              <span class="contact-value">a0909769887@gmail.com</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">住址</span>
+              <span class="contact-value">彰化縣鹿港鎮廖厝里楊厝巷40之3號</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="language-section">
+          <h3>語言能力</h3>
+          <div class="language-item">
+            <div class="language-name">
+              <span>中文</span>
+              <span class="language-level">母語</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 100%"></div>
+            </div>
+          </div>
+          <div class="language-item">
+            <div class="language-name">
+              <span>英文</span>
+              <span class="language-level">基礎</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 40%"></div>
+            </div>
+          </div>
+          <div class="language-item">
+            <div class="language-name">
+              <span>台語</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 80%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-column">
+        <div class="section">
+          <h2 class="section-title">學歷經歷</h2>
+          <div class="timeline-item">
+            <div class="timeline-period">2022 - 至今</div>
+            <div class="timeline-content">
+              <div class="timeline-title">二林工商</div>
+              <div class="timeline-subtitle">高中部</div>
+              <div class="timeline-description">
+                對語文和人文學科有較高興趣，課業表現優良。積極參與校內活動，培養多元能力。
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-period">2019 - 2022</div>
+            <div class="timeline-content">
+              <div class="timeline-title">彰化縣立鹿港國民中學</div>
+              <div class="timeline-subtitle">國中部</div>
+              <div class="timeline-description">
+                國中三年保持班級前五名的成績，積極參與校內活動並培養多方面能力。
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-period">2013 - 2019</div>
+            <div class="timeline-content">
+              <div class="timeline-title">洛津國小</div>
+              <div class="timeline-subtitle">國小部</div>
+              <div class="timeline-description">
+                奠定良好的學習基礎，培養自主學習的能力。
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">課外活動</h2>
+          <div class="timeline-item">
+            <div class="timeline-period">2023 - 2024</div>
+            <div class="timeline-content">
+              <div class="timeline-title">校內社團 - 社長</div>
+              <div class="timeline-description">
+                擔任校內社團社長兩學期，負責社團活動規劃、執行與協調，培養領導能力與團隊合作精神。
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-period">2023</div>
+            <div class="timeline-content">
+              <div class="timeline-title">二林實物(食物)銀行 - 志工</div>
+              <div class="timeline-description">
+                參與二林實物(食物)銀行志工服務兩天，協助弱勢家庭食物發放，增進社會關懷意識與服務精神。
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">專長與技能</h2>
+          <div class="skills-container">
+            <div class="skill-group">
+              <div class="skill-group-title">語文能力</div>
+              <ul class="skill-list">
+                <li>中文寫作</li>
+                <li>演講與口才</li>
+                <li>閱讀理解</li>
+                <li>文章賞析</li>
+              </ul>
+            </div>
+            <div class="skill-group">
+              <div class="skill-group-title">電腦技能</div>
+              <ul class="skill-list">
+                <li>文書處理 (Word, PowerPoint)</li>
+                <li>基礎網頁設計</li>
+                <li>影片剪輯入門</li>
+                <li>電腦繪圖</li>
+              </ul>
+            </div>
+            <div class="skill-group">
+              <div class="skill-group-title">興趣科目</div>
+              <ul class="skill-list">
+                <li>國文</li>
+                <li>歷史、地理</li>
+                <li>公民與社會</li>
+                <li>音樂、美術</li>
+              </ul>
+            </div>
+            <div class="skill-group">
+              <div class="skill-group-title">其他能力</div>
+              <ul class="skill-list">
+                <li>團隊合作</li>
+                <li>時間管理</li>
+                <li>活動策劃</li>
+                <li>簡報製作</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">成就與獎項</h2>
+          <div class="achievement-item">
+            <div class="achievement-title">校內國文朗讀比賽 - 第三名</div>
+            <div class="achievement-detail">2023年</div>
+          </div>
+          <div class="achievement-item">
+            <div class="achievement-title">優良學生獎學金</div>
+            <div class="achievement-detail">2023-2024學年度</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  </html>
 
   <!-- Footer Section -->
   <footer>
