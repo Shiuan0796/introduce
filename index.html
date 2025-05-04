@@ -4,8 +4,426 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>關於我的個人介紹</title>
-  <link rel="stylesheet" href="css/simple.css"> <!-- 引入 CSS 檔案 -->
+  <title>許筑瑄 - 個人履歷</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      width: 100%;
+      background-color: #fff;
+      padding: 20px 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      font-size: 16px;
+      border: 1px solid #ddd;
+    }
+
+    nav a:hover {
+      background-color: #1abc9c;
+      color: white;
+      border-color: #1abc9c;
+      transform: translateY(-2px);
+    }
+
+    .main-wrapper {
+      padding: 0 20px;
+      margin-bottom: 40px;
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto 50px;
+      background-color: white;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .left-column {
+      width: 30%;
+      padding: 40px 30px;
+      background-color: #f9f9f9;
+      border-right: 1px solid #eee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .right-column {
+      width: 70%;
+      padding: 40px;
+    }
+
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 30px;
+      border: 4px solid #1abc9c;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+    }
+
+    .name-section {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .name-zh {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #222;
+    }
+
+    .name-en {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .contact-section h3,
+    .language-section h3 {
+      font-size: 20px;
+      border-bottom: 2px solid #1abc9c;
+      padding-bottom: 10px;
+      margin: 0 0 20px;
+      width: 100%;
+      text-align: center;
+      color: #333;
+    }
+
+    .contact-info {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+
+    .contact-item {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .contact-label {
+      font-weight: bold;
+      margin-right: 12px;
+      font-size: 15px;
+      color: #555;
+      min-width: 45px;
+    }
+
+    .contact-value {
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .language-section {
+      width: 100%;
+    }
+
+    .language-item {
+      margin-bottom: 22px;
+    }
+
+    .language-name {
+      font-weight: bold;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 15px;
+    }
+
+    .language-level {
+      color: #666;
+      font-size: 13px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 10px;
+      background-color: #e0e0e0;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .progress-fill {
+      height: 100%;
+      background-color: #1abc9c;
+      border-radius: 5px;
+      transition: width 1s ease;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      border-bottom: 2px solid #1abc9c;
+      padding-bottom: 10px;
+      margin-bottom: 25px;
+      color: #222;
+      position: relative;
+    }
+
+    .section-title:after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 60px;
+      height: 2px;
+      background-color: #0e8c73;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 30px;
+      display: flex;
+    }
+
+    .timeline-item:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #1abc9c;
+      box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.2);
+    }
+
+    .timeline-item:after {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 24px;
+      width: 1px;
+      height: calc(100% - 6px);
+      background-color: #ddd;
+    }
+
+    .timeline-item:last-child:after {
+      display: none;
+    }
+
+    .timeline-period {
+      min-width: 140px;
+      font-weight: bold;
+      color: #555;
+      font-size: 15px;
+    }
+
+    .timeline-content {
+      flex: 1;
+      padding-left: 10px;
+    }
+
+    .timeline-title {
+      font-weight: bold;
+      margin-bottom: 8px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .timeline-subtitle {
+      color: #666;
+      font-style: italic;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .timeline-description {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      margin-top: 5px;
+    }
+
+    .skill-group {
+      margin-bottom: 25px;
+    }
+
+    .skill-group-title {
+      font-weight: bold;
+      margin-bottom: 12px;
+      font-size: 18px;
+      color: #333;
+      padding-bottom: 5px;
+      border-bottom: 1px dashed #ddd;
+    }
+
+    .skill-list {
+      list-style-type: none;
+    }
+
+    .skill-list li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+
+    .skill-list li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #1abc9c;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .achievement-item {
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: #f9f9f9;
+      border-left: 3px solid #1abc9c;
+      border-radius: 0 5px 5px 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .achievement-item:hover {
+      transform: translateX(5px);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .achievement-title {
+      font-weight: bold;
+      margin-bottom: 8px;
+      font-size: 17px;
+      color: #333;
+    }
+
+    .achievement-detail {
+      font-size: 15px;
+      color: #666;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      background-color: #f9f9f9;
+      position: relative;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    footer:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: #1abc9c;
+      z-index: 1;
+    }
+
+    footer p {
+      display: inline-block;
+      position: relative;
+      background-color: #f9f9f9;
+      padding: 0 25px;
+      z-index: 2;
+      font-size: 16px;
+      color: #555;
+      font-style: italic;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+        margin: 0 auto 30px;
+      }
+
+      .left-column,
+      .right-column {
+        width: 100%;
+        padding: 30px;
+      }
+
+      .left-column {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+      }
+
+      .profile-img {
+        width: 150px;
+        height: 150px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      nav a {
+        padding: 8px 15px;
+        font-size: 14px;
+      }
+
+      .skills-container {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        flex-direction: column;
+      }
+
+      .timeline-period {
+        margin-bottom: 8px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -20,282 +438,13 @@
     </nav>
   </header>
 
-  <html lang="zh-Hant">
-
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>許筑瑄 - 個人履歷</title>
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        font-family: 'Microsoft JhengHei', 'PingFang TC', sans-serif;
-      }
-
-      body {
-        background-color: #f2f2f2;
-        color: #333;
-      }
-
-      .header-bar {
-        height: 12px;
-        background-color: #1abc9c;
-        width: 100%;
-      }
-
-      .container {
-        display: flex;
-        width: 100%;
-        background-color: white;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-
-
-
-      .left-column {
-        width: 30%;
-        padding: 30px;
-        background-color: #f9f9f9;
-        border-right: 1px solid #eee;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .right-column {
-        width: 70%;
-        padding: 30px;
-      }
-
-      .profile-img {
-        width: 140px;
-        height: 140px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-bottom: 20px;
-        border: 3px solid #1abc9c;
-      }
-
-      .name-section {
-        text-align: center;
-        margin-bottom: 30px;
-      }
-
-      .name-zh {
-        font-size: 28px;
-        font-weight: bold;
-        margin-bottom: 5px;
-      }
-
-      .name-en {
-        font-size: 16px;
-        color: #666;
-        margin-bottom: 20px;
-      }
-
-      .contact-section h3 {
-        font-size: 18px;
-        border-bottom: 2px solid #1abc9c;
-        padding-bottom: 8px;
-        margin-bottom: 15px;
-        width: 100%;
-        text-align: center;
-      }
-
-      .contact-info {
-        width: 100%;
-        margin-bottom: 30px;
-      }
-
-      .contact-item {
-        margin-bottom: 10px;
-        display: flex;
-        align-items: center;
-      }
-
-      .contact-label {
-        font-weight: bold;
-        margin-right: 8px;
-        font-size: 14px;
-        color: #555;
-        min-width: 40px;
-      }
-
-      .contact-value {
-        font-size: 14px;
-      }
-
-      .language-section {
-        width: 100%;
-      }
-
-      .language-item {
-        margin-bottom: 15px;
-      }
-
-      .language-name {
-        font-weight: bold;
-        margin-bottom: 5px;
-        display: flex;
-        justify-content: space-between;
-        font-size: 14px;
-      }
-
-      .language-level {
-        color: #888;
-        font-size: 12px;
-      }
-
-      .progress-bar {
-        width: 100%;
-        height: 8px;
-        background-color: #e0e0e0;
-        border-radius: 4px;
-        overflow: hidden;
-      }
-
-      .progress-fill {
-        height: 100%;
-        background-color: #1abc9c;
-        border-radius: 4px;
-      }
-
-      .section {
-        margin-bottom: 30px;
-      }
-
-      .section-title {
-        font-size: 20px;
-        border-bottom: 2px solid #1abc9c;
-        padding-bottom: 8px;
-        margin-bottom: 20px;
-      }
-
-      .timeline-item {
-        position: relative;
-        padding-left: 20px;
-        margin-bottom: 20px;
-        display: flex;
-      }
-
-      .timeline-item:before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 6px;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background-color: #1abc9c;
-      }
-
-      .timeline-period {
-        min-width: 140px;
-        font-weight: bold;
-        color: #666;
-        font-size: 14px;
-      }
-
-      .timeline-content {
-        flex: 1;
-      }
-
-      .timeline-title {
-        font-weight: bold;
-        margin-bottom: 5px;
-        font-size: 16px;
-      }
-
-      .timeline-subtitle {
-        color: #666;
-        font-style: italic;
-        margin-bottom: 5px;
-        font-size: 14px;
-      }
-
-      .timeline-description {
-        font-size: 14px;
-        line-height: 1.5;
-        color: #444;
-      }
-
-      .skills-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-      }
-
-      .skill-group {
-        margin-bottom: 20px;
-      }
-
-      .skill-group-title {
-        font-weight: bold;
-        margin-bottom: 8px;
-        font-size: 16px;
-      }
-
-      .skill-list {
-        list-style-type: none;
-      }
-
-      .skill-list li {
-        position: relative;
-        padding-left: 15px;
-        margin-bottom: 6px;
-        font-size: 14px;
-      }
-
-      .skill-list li:before {
-        content: "•";
-        position: absolute;
-        left: 0;
-        color: #1abc9c;
-        font-weight: bold;
-      }
-
-      .achievement-item {
-        margin-bottom: 15px;
-      }
-
-      .achievement-title {
-        font-weight: bold;
-        margin-bottom: 5px;
-        font-size: 16px;
-      }
-
-      .achievement-detail {
-        font-size: 14px;
-        color: #555;
-      }
-
-      @media (max-width: 768px) {
-        .container {
-          flex-direction: column;
-        }
-
-        .left-column,
-        .right-column {
-          width: 100%;
-        }
-
-        .skills-container {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <div class="header-bar"></div>
+  <div class="main-wrapper">
     <div class="container">
       <div class="left-column">
-        <img src="/api/placeholder/400/400" alt="個人照片" class="profile-img">
+        <img src="images/fa723f27-fc9a-45cb-86d5-79a22e61386a.jpg" alt="個人照片" class="profile-img">
         <div class="name-section">
           <div class="name-zh">許筑瑄</div>
-          <div class="name-en">Chu-Hsuan Hsu</div>
+          <div class="name-en">XU-ZHU-SHIUAN</div>
         </div>
 
         <div class="contact-section">
@@ -337,15 +486,16 @@
               <span class="language-level">基礎</span>
             </div>
             <div class="progress-bar">
-              <div class="progress-fill" style="width: 40%"></div>
+              <div class="progress-fill" style="width: 30%"></div>
             </div>
           </div>
           <div class="language-item">
             <div class="language-name">
               <span>台語</span>
+              <span class="language-level">母語</span>
             </div>
             <div class="progress-bar">
-              <div class="progress-fill" style="width: 80%"></div>
+              <div class="progress-fill" style="width: 60%"></div>
             </div>
           </div>
         </div>
@@ -360,7 +510,7 @@
               <div class="timeline-title">二林工商</div>
               <div class="timeline-subtitle">高中部</div>
               <div class="timeline-description">
-                對語文和人文學科有較高興趣，課業表現優良。積極參與校內活動，培養多元能力。
+                維持良好作息，課業表現優良，積極參與校內活動，培養多元能力。
               </div>
             </div>
           </div>
@@ -370,7 +520,7 @@
               <div class="timeline-title">彰化縣立鹿港國民中學</div>
               <div class="timeline-subtitle">國中部</div>
               <div class="timeline-description">
-                國中三年保持班級前五名的成績，積極參與校內活動並培養多方面能力。
+                維持生活規律，學習科目基礎，探索興趣培養專長。
               </div>
             </div>
           </div>
@@ -380,7 +530,7 @@
               <div class="timeline-title">洛津國小</div>
               <div class="timeline-subtitle">國小部</div>
               <div class="timeline-description">
-                奠定良好的學習基礎，培養自主學習的能力。
+                樹立良好的生活紀律，培養自主學習的能力。
               </div>
             </div>
           </div>
@@ -388,6 +538,15 @@
 
         <div class="section">
           <h2 class="section-title">課外活動</h2>
+          <div class="timeline-item">
+            <div class="timeline-period">2023</div>
+            <div class="timeline-content">
+              <div class="timeline-title">校外生命教育體驗「慈恩休閒農場參訪」活動</div>
+              <div class="timeline-description">
+                我學習到了尊重生命、珍惜食物，還有了解農場裡動植物的生長過程，讓我更懂得感恩大自然的恩惠。
+              </div>
+            </div>
+          </div>
           <div class="timeline-item">
             <div class="timeline-period">2023 - 2024</div>
             <div class="timeline-content">
@@ -398,7 +557,16 @@
             </div>
           </div>
           <div class="timeline-item">
-            <div class="timeline-period">2023</div>
+            <div class="timeline-period">2023 - 2024</div>
+            <div class="timeline-content">
+              <div class="timeline-title">校內衛生環境整潔志工</div>
+              <div class="timeline-description">
+                高中一二年級期間利用午休時間擔任校內衛生環境整潔志工，協助維護校園環境，培養服務精神與責任感。
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-period">2025</div>
             <div class="timeline-content">
               <div class="timeline-title">二林實物(食物)銀行 - 志工</div>
               <div class="timeline-description">
@@ -453,19 +621,32 @@
         <div class="section">
           <h2 class="section-title">成就與獎項</h2>
           <div class="achievement-item">
+            <div class="achievement-title">校內教室布置比賽 - 第一名</div>
+            <div class="achievement-detail">2023年</div>
+          </div>
+          <div class="achievement-item">
             <div class="achievement-title">校內國文朗讀比賽 - 第三名</div>
             <div class="achievement-detail">2023年</div>
           </div>
           <div class="achievement-item">
-            <div class="achievement-title">優良學生獎學金</div>
-            <div class="achievement-detail">2023-2024學年度</div>
+            <div class="achievement-title">Cool English 自主學習活動 - 自學入門獎</div>
+            <div class="achievement-detail">2023年</div>
           </div>
+          <div class="achievement-item">
+            <div class="achievement-title">校內健康促進海報競賽 - 榮獲佳作</div>
+            <div class="achievement-detail">2025年</div>
+          </div>
+
         </div>
       </div>
     </div>
-  </body>
+  </div>
 
-  </html>
+
+  </div>
+  </div>
+  </div>
+  </div>
 
   <!-- Footer Section -->
   <footer>
