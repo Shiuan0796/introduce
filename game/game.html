@@ -13,21 +13,19 @@
     <link rel="stylesheet" href="../css/simple.css">
 
 <link rel="stylesheet" href="../css/style.css">
-<script>
-  document.querySelectorAll('.article-link').forEach(link => {
-    link.addEventListener('click', function (e) {
-      e.preventDefault(); // 暫停跳轉
-      const article = this.querySelector('article');
-      article.classList.add('article-animate'); // 加動畫類別
+<style>/* 設定整個連結框的樣式 */
+.article-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
 
-      // 延遲 500ms 後跳轉
-      setTimeout(() => {
-        window.location.href = this.href;
-      }, 500);
-    });
-  });
-</script>
-
+/* 點擊時變灰色 */
+.article-link:active {
+  background-color: #ccc; /* 或你想要的灰色 */
+}
+</style>
 </head>
 
 <body>
