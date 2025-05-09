@@ -5,7 +5,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>歡迎來到遊戲專區</title>
-  <link rel="stylesheet" href="../css/simple.css"> <!-- 保留你原本的外部 CSS -->
+  <div class="abc-style">
+    <link rel="stylesheet" href="../css/abc.css">
+  </div>
+  <!-- 引入頁面內容專用樣式 -->
+  <link rel="stylesheet" href="../css/simple.css">
+  <!-- 引入我們新增的樣式 -->
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- 保留你原本的外部 CSS -->
   <style>
     .slot-machine {
       display: flex;
@@ -74,26 +81,34 @@
       width: 100%;
       margin: 20px 0;
     }
-    
+
     /* 較小的返回按鈕樣式 */
     .back-link {
       display: inline-block;
-      padding: 4px 12px; /* 減小內邊距 */
-      border: 1px solid #0052cc; /* 使用較細的邊框和藍色 */
-      border-radius: 4px; /* 減小邊框圓角 */
+      padding: 4px 12px;
+      /* 減小內邊距 */
+      border: 1px solid #0052cc;
+      /* 使用較細的邊框和藍色 */
+      border-radius: 4px;
+      /* 減小邊框圓角 */
       text-decoration: none;
       color: white;
-      font-weight: normal; /* 調整字體粗細 */
-      font-size: 14px; /* 減小字體大小 */
-      background-color: #0066cc; /* 使用藍色背景 */
+      font-weight: normal;
+      /* 調整字體粗細 */
+      font-size: 14px;
+      /* 減小字體大小 */
+      background-color: #0066cc;
+      /* 使用藍色背景 */
       text-align: center;
       line-height: 1.5;
       transition: background-color 0.3s ease;
-      width: fit-content; /* 讓按鈕寬度適應內容 */
+      width: fit-content;
+      /* 讓按鈕寬度適應內容 */
     }
 
     .back-link:hover {
-      background-color: #004c99; /* 懸停時的顏色變化 */
+      background-color: #004c99;
+      /* 懸停時的顏色變化 */
     }
 
     .arrow {
@@ -102,13 +117,21 @@
     }
 
     .game-container {
-  border: 2px solid #ccc; /* 淺灰色邊框 */
-  border-radius: 12px;
-  padding: 20px;
-  max-width: 500px;
-  margin: 0 auto 30px;
-  background-color: #fdfdfd; /* 非粉色，略微柔和背景 */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      border: 2px solid #ccc;
+      /* 淺灰色邊框 */
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 500px;
+      margin: 0 auto 30px;
+      background-color: #fdfdfd;
+      /* 非粉色，略微柔和背景 */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .align-left-container {
+  width: 500px; /* 跟 .game-container 一樣寬 */
+  margin: 0 auto; /* 讓它在頁面中置中，但內容靠左 */
+  text-align: left;
 }
 
   </style>
@@ -128,28 +151,33 @@
 
   <h1 style="text-align: center;">🎰 甜點拉霸遊戲 🎰</h1>
 
-<!-- 新增這層 div -->
-<div class="game-container">
-  <div class="slot-machine">
-    <div class="slot"><span id="slot1">🍩</span></div>
-    <div class="slot"><span id="slot2">🍪</span></div>
-    <div class="slot"><span id="slot3">🍰</span></div>
+  <!-- 新增這層 div -->
+  <div class="game-container">
+    <div class="slot-machine">
+      <div class="slot"><span id="slot1">🍩</span></div>
+      <div class="slot"><span id="slot2">🍪</span></div>
+      <div class="slot"><span id="slot3">🍰</span></div>
+    </div>
+    <div style="text-align: center;">
+      <button class="btn" id="spinBtn" onclick="spin()">拉霸！</button>
+      <div id="result" style="height: 2em; font-size: 1.5em; margin-top: 10px;"></div>
+    </div>
   </div>
-  <div style="text-align: center;">
-    <button class="btn" id="spinBtn" onclick="spin()">拉霸！</button>
-    <div id="result" style="height: 2em; font-size: 1.5em; margin-top: 10px;"></div>
-  </div>
-</div>
 
-  <blockquote>
+ <div style="text-align: center; margin-bottom: 30px;">
+  <blockquote style="display: inline-block; text-align: left; max-width: 500px;">
     "「甜甜圈、蛋糕、冰淇淋～拉一次，笑一次，甜到心坎裡！」"💖🧁
     <br>
     <cite>— 我，對甜點的熱愛</cite>
-</blockquote>
-
+  </blockquote>
+  <br>
+  <div class="align-left-container">
   <a href="game.html" class="button back-link"><span class="arrow">⬅</span> 回到上一頁 ヾ(￣▽￣) Bye~</a>
+</div>
 
-  
+</div>
+
+
 
 
   <footer>
@@ -209,9 +237,10 @@
 
         // 啟用按鈕
         spinBtn.disabled = false;
-      }, 2000);}
-    
-    
+      }, 2000);
+    }
+
+
 
   </script>
 

@@ -4,15 +4,30 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>遊戲專區 - Fun!</title>
-    
+    <title>Fun! - 遊戲專區</title>
+
     <div class="abc-style">
-        <link rel="stylesheet" href="css/abc.css">
-      </div>
+        <link rel="stylesheet" href="../css/abc.css">
+    </div>
     <!-- 引入頁面內容專用樣式 -->
     <link rel="stylesheet" href="../css/simple.css">
-    
-    
+
+<link rel="stylesheet" href="../css/style.css">
+<script>
+  document.querySelectorAll('.article-link').forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault(); // 暫停跳轉
+      const article = this.querySelector('article');
+      article.classList.add('article-animate'); // 加動畫類別
+
+      // 延遲 500ms 後跳轉
+      setTimeout(() => {
+        window.location.href = this.href;
+      }, 500);
+    });
+  });
+</script>
+
 </head>
 
 <body>
@@ -25,15 +40,15 @@
             <a href="../resume.html">學習歷程</a>
             <a href="game.html" aria-current="page">Fun!</a>
         </nav>
-        <h1>遊戲專區</h1>
-    </header>
 
+    </header>
+    <h1 style="text-align: center;">遊戲專區</h1>
     <!-- Main Content Section -->
     <main>
         <section>
-            <img src="" alt="遊戲頁面照片" class="image-banner" />
+            <img src="../images/b5096421-d1d0-4447-8998-31f9eaafa695.jpg" alt="遊戲頁面照片" class="image-banner" />
         </section>
-        
+
         <a href="slot.html" class="article-link">
             <article>
                 <h2 class="centered-title">🎰拉霸機🎰</h2>

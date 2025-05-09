@@ -1,0 +1,94 @@
+/* 使用 Flexbox 布局來確保頁尾在底部 */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 確保至少有視窗高度 */
+  background-color: #f5f5f5;
+}
+
+/* 頁首樣式 */
+header {
+  width: 100%;
+  background-color: #fff;
+  padding: 20px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+/* 導航欄居中但不滿版 */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1200px; /* 設置最大寬度 */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 主內容區域 */
+main {
+  flex: 1; /* 佔據剩餘空間 */
+  max-width: 800px; /* 內容區域的最大寬度 */
+  width: 90%; /* 內容寬度佔視窗的百分比 */
+  margin: 0 auto; /* 自動邊距使內容居中 */
+  padding: 0 20px; /* 內邊距 */
+}
+
+/* 如果沒有 main 標籤，可以為特定容器添加相同的樣式 */
+.content-container {
+  flex: 1;
+  max-width: 800px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 頁尾樣式 - 不固定，但會緊貼內容底部 */
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 30px 0;
+  background-color: #f9f9f9;
+  margin-top: auto; /* 當內容不足一頁時將 footer 推到底部 */
+  position: relative; /* 為了裝飾線的定位 */
+}
+
+footer:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #1abc9c;
+  z-index: 1;
+}
+
+footer p {
+  display: inline-block;
+  position: relative;
+  background-color: #f9f9f9;
+  padding: 0 25px;
+  z-index: 2;
+  font-size: 16px;
+  color: #555;
+  font-style: italic;
+  margin: 0; /* 確保段落沒有預設邊距 */
+}
+
+/* 遊戲容器的樣式調整 */
+.game-container {
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto 30px;
+  background-color: #fdfdfd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}

@@ -66,96 +66,177 @@ html {
 }
 
 /* Make the body a nice central block */
+/* 修改 body 網格設定來實現滿版 */
 body {
   color: var(--text);
   background-color: var(--bg);
   font-size: 1.15rem;
   line-height: 1.5;
-  display: grid;
-  grid-template-columns: 1fr min(45rem, 90%) 1fr;
+  /* 移除原本的網格限制 */
+  display: block; /* 從 grid 改為 block */
+  /* 移除 grid-template-columns: 1fr min(45rem, 90%) 1fr; */
   margin: 0;
+  padding: 0;
+  width: 100%;
 }
+
+/* 移除限制子元素於中間列的設定 */
+/* 
 body > * {
   grid-column: 2;
 }
+*/
 
-/* Add a little padding to ensure spacing is correct between content and header > nav */
-main {
-  padding-top: 1.5rem;
+/* 修改頁首樣式 */
+header {
+  width: 100%;
+  background-color: #fff;
+  padding: 20px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  text-align: center; /* 讓標題置中 */
 }
 
-/* Format headers */
-h1 {
-  font-size: 3rem;
+/* 保持導航欄原有樣式，但確保寬度 */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-h2 {
-  font-size: 2.6rem;
-  margin-top: 3rem;
+/* 確保頁尾滿版 */
+footer {
+  text-align: center;
+  padding: 30px 0;
+  background-color: #f9f9f9;
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
 }
 
-h3 {
-  font-size: 2rem;
-  margin-top: 3rem;
+/* 確保基本元素佔滿整個高度 */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-h4 {
-  font-size: 1.44rem;
-}
-
-h5 {
+/* 使用 Flexbox 布局確保頁尾在底部 */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: var(--text);
+  background-color: var(--bg);
   font-size: 1.15rem;
+  line-height: 1.5;
 }
 
-h6 {
-  font-size: 0.96rem;
+/* 頁首滿版 */
+header {
+  width: 100%;
+  background-color: #fff;
+  padding: 20px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  text-align: center;
 }
 
-p {
-  margin: 1.5rem 0;
+/* 導航欄居中但不滿版 */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1200px; /* 設置最大寬度 */
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-/* Prevent long strings from overflowing container */
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
+/* 主內容區域佔據剩餘空間並設置寬度限制 */
+main {
+  flex: 1;
+  max-width: 1200px; /* 內容區域的最大寬度 */
+  width: 90%; /* 內容寬度佔視窗的百分比 */
+  margin: 0 auto; /* 自動邊距使內容居中 */
+  padding: 0 20px; /* 內邊距 */
 }
 
-/* Fix line height when title wraps */
-h1,
-h2,
-h3 {
-  line-height: 1.1;
+/* 特定容器也可設置寬度限制 */
+.container {
+  max-width: 1000px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
-/* Reduce header size on mobile */
-@media only screen and (max-width: 720px) {
-  h1 {
-    font-size: 2.5rem;
+/* 內容區域也可使用傳統的居中方式 */
+.content {
+  max-width: 800px; /* 可根據需要調整 */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* 修改原本的 footer 樣式，使它固定在底部 */
+footer {
+  text-align: center;
+  padding: 30px 0;
+  background-color: #f9f9f9;
+  position: fixed; /* 改為 fixed 定位 */
+  bottom: 0; /* 固定在視窗底部 */
+  left: 0;
+  width: 100%;
+  z-index: 100; /* 確保它在其他元素上方 */
+}
+
+/* 保留原本 footer 中的裝飾線樣式 */
+footer:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #1abc9c;
+  z-index: 1;
+}
+
+footer p {
+  display: inline-block;
+  position: relative;
+  background-color: #f9f9f9;
+  padding: 0 25px;
+  z-index: 2;
+  font-size: 16px;
+  color: #555;
+  font-style: italic;
+}
+
+/* 為了防止頁尾覆蓋內容，需要在 body 或 main 元素底部添加適當的間距 */
+body {
+  margin-bottom: 100px; /* 根據 footer 高度調整，確保內容不被 footer 遮擋 */
+}
+
+/* 或者在 main 元素上添加底部間距也可以 */
+main {
+  margin-bottom: 100px; /* 根據 footer 高度調整 */
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  main, .container, .content {
+    width: 95%;
+    padding: 0 10px;
   }
-
-  h2 {
-    font-size: 2.1rem;
-  }
-
-  h3 {
-    font-size: 1.75rem;
-  }
-
-  h4 {
-    font-size: 1.25rem;
+  
+  nav {
+    flex-wrap: wrap;
+    gap: 15px;
   }
 }
-
-/* Format links & buttons */
-a,
-a:visited {
-  color: var(--accent);
-}
-
-a:hover {
-  text-decoration: none;
-}
-
 button,
 .button,
 a.button, /* extra specificity to override a */
@@ -748,3 +829,4 @@ sub {
         font-size: 14px;
       }
     }
+    
