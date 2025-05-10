@@ -187,6 +187,59 @@
         main {
             padding-bottom: 30px;
         }
+        .hamburger-menu {
+  display: none; /* 電腦版不顯示 */
+  cursor: pointer;
+  padding: 15px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 30px;
+  height: 3px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+/* 漢堡菜單點擊效果 */
+.change .bar1 {
+  transform: translate(0, 9px) rotate(-45deg);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: translate(0, -9px) rotate(45deg);
+}
+
+/* 手機版導航 */
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: block;
+  }
+  
+  nav.mobile-nav {
+    display: none; /* 預設隱藏 */
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 70px;
+    background-color: white;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
+  
+  nav.mobile-nav.show {
+    display: flex; /* 點擊後顯示 */
+  }
+}
+
     </style>
 </head>
 
@@ -239,6 +292,20 @@
     <footer>
         <p>每個關卡、每個畫面，都是我學習與挑戰的成果。</p>
     </footer>
+    <script>
+        document.querySelector('.hamburger-menu').addEventListener('click', function() {
+          this.classList.toggle('change');
+          document.querySelector('nav.mobile-nav').classList.toggle('show');
+        });
+        
+        // 點擊導航項目後自動收起菜單
+        document.querySelectorAll('nav.mobile-nav a').forEach(item => {
+          item.addEventListener('click', function() {
+            document.querySelector('.hamburger-menu').classList.remove('change');
+            document.querySelector('nav.mobile-nav').classList.remove('show');
+          });
+        });
+      </script>
 </body>
 
 </html>
