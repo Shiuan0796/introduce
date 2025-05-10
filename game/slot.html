@@ -129,63 +129,9 @@
     }
 
     .align-left-container {
-      width: 500px;
-      /* 跟 .game-container 一樣寬 */
-      margin: 0 auto;
-      /* 讓它在頁面中置中，但內容靠左 */
-      text-align: left;
-    }
-    .hamburger-menu {
-  display: none; /* 電腦版不顯示 */
-  cursor: pointer;
-  padding: 15px;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
-}
-
-.bar1, .bar2, .bar3 {
-  width: 30px;
-  height: 3px;
-  background-color: #333;
-  margin: 6px 0;
-  transition: 0.4s;
-}
-
-/* 漢堡菜單點擊效果 */
-.change .bar1 {
-  transform: translate(0, 9px) rotate(-45deg);
-}
-
-.change .bar2 {
-  opacity: 0;
-}
-
-.change .bar3 {
-  transform: translate(0, -9px) rotate(45deg);
-}
-
-/* 手機版導航 */
-@media (max-width: 768px) {
-  .hamburger-menu {
-    display: block;
-  }
-  
-  nav.mobile-nav {
-    display: none; /* 預設隱藏 */
-    flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 70px;
-    background-color: white;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-    z-index: 999;
-  }
-  
-  nav.mobile-nav.show {
-    display: flex; /* 點擊後顯示 */
-  }
+  width: 500px; /* 跟 .game-container 一樣寬 */
+  margin: 0 auto; /* 讓它在頁面中置中，但內容靠左 */
+  text-align: left;
 }
 
   </style>
@@ -218,18 +164,18 @@
     </div>
   </div>
 
-  <div style="text-align: center; margin-bottom: 30px;">
-    <blockquote style="display: inline-block; text-align: left; max-width: 500px;">
-      "「甜甜圈、蛋糕、冰淇淋～拉一次，笑一次，甜到心坎裡！」"💖🧁
-      <br>
-      <cite>— 我，對甜點的熱愛</cite>
-    </blockquote>
+ <div style="text-align: center; margin-bottom: 30px;">
+  <blockquote style="display: inline-block; text-align: left; max-width: 500px;">
+    "「甜甜圈、蛋糕、冰淇淋～拉一次，笑一次，甜到心坎裡！」"💖🧁
     <br>
-    <div class="align-left-container">
-      <a href="game.html" class="button back-link"><span class="arrow">⬅</span> 回到上一頁 ヾ(￣▽￣) Bye~</a>
-    </div>
+    <cite>— 我，對甜點的熱愛</cite>
+  </blockquote>
+  <br>
+  <div class="align-left-container">
+  <a href="game.html" class="button back-link"><span class="arrow">⬅</span> 回到上一頁 ヾ(￣▽￣) Bye~</a>
+</div>
 
-  </div>
+</div>
 
 
 
@@ -293,19 +239,6 @@
         spinBtn.disabled = false;
       }, 2000);
     }
-
-    document.querySelector('.hamburger-menu').addEventListener('click', function () {
-      this.classList.toggle('change');
-      document.querySelector('nav.mobile-nav').classList.toggle('show');
-    });
-
-    // 點擊導航項目後自動收起菜單
-    document.querySelectorAll('nav.mobile-nav a').forEach(item => {
-      item.addEventListener('click', function () {
-        document.querySelector('.hamburger-menu').classList.remove('change');
-        document.querySelector('nav.mobile-nav').classList.remove('show');
-      });
-    });
 
 
 
