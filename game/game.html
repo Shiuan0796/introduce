@@ -12,20 +12,182 @@
     <!-- 引入頁面內容專用樣式 -->
     <link rel="stylesheet" href="../css/simple.css">
 
-<link rel="stylesheet" href="../css/style.css">
-<style>/* 設定整個連結框的樣式 */
-.article-link {
-  display: block;
-  color: inherit;
-  text-decoration: none;
-  transition: background-color 0.3s;
-}
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* 設定整個連結框的樣式 */
+        .article-link {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            overflow: hidden;
+        }
 
-/* 點擊時變灰色 */
-.article-link:active {
-  background-color: #ccc; /* 或你想要的灰色 */
-}
-</style>
+        /* 滑鼠懸停效果 */
+        .article-link:hover {
+            border-color: #FFD700;
+            /* 金色邊框 */
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+            transform: translateY(-5px);
+            background-color: rgba(255, 253, 240, 0.7);
+        }
+
+        /* 點擊時變灰色 */
+        .article-link:active {
+            background-color: #f0f0f0;
+            transform: translateY(2px);
+            box-shadow: 0 0 5px rgba(255, 215, 0, 0.2);
+        }
+
+        /* 特殊的卡片連結樣式 */
+        .card-link {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 20px;
+            /* 確保底部有足夠空間 */
+            box-sizing: border-box;
+            /* 確保padding和border計入總寬度 */
+        }
+
+        /* 卡片連結懸停效果 */
+        .card-link:hover {
+            border-color: #FFD700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+            transform: translateY(-8px);
+            background-color: rgba(255, 253, 240, 0.8);
+        }
+
+        /* 卡片連結點擊效果 */
+        .card-link:active {
+            background-color: #f5f5f5;
+            transform: translateY(3px);
+            box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+        }
+
+        /* 閃光效果 */
+        .card-link:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 215, 0, 0.3),
+                    transparent);
+            transition: left 0.7s ease;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .card-link:hover:before {
+            left: 100%;
+        }
+
+        /* 拉霸機標題動畫效果 */
+        .slot-emoji {
+            display: inline-block;
+            transition: transform 0.5s ease;
+        }
+
+        .card-link:hover .slot-emoji {
+            animation: slotSpin 1.5s infinite ease-in-out;
+        }
+
+        @keyframes slotSpin {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            25% {
+                transform: translateY(-8px) rotate(5deg);
+            }
+
+            50% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            75% {
+                transform: translateY(8px) rotate(-5deg);
+            }
+
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+
+        /* 標題閃爍效果 */
+        .card-link:hover .centered-title {
+            animation: titleGlow 2s infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            from {
+                text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+            }
+
+            to {
+                text-shadow: 0 0 15px rgba(255, 140, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.6);
+            }
+        }
+
+        /* 確保文章內容不會超出邊界 */
+        article {
+            padding: 15px;
+            margin-bottom: 0;
+            /* 移除可能的底部邊距 */
+            box-sizing: border-box;
+            /* 確保padding計入總寬度 */
+            width: 100%;
+            /* 確保寬度為100% */
+            overflow: hidden;
+            /* 隱藏可能溢出的內容 */
+        }
+
+        /* 修復日期右對齊可能造成的溢出 */
+        .date-right {
+            text-align: right;
+            padding-right: 10px;
+            margin-bottom: 10px;
+            /* 確保底部有足夠間距 */
+            box-sizing: border-box;
+        }
+
+        /* 改進文本居中樣式，防止溢出 */
+        .text-center {
+            text-align: center;
+            padding: 0 10px;
+            margin: 10px 0;
+            /* 統一上下邊距 */
+            box-sizing: border-box;
+            word-wrap: break-word;
+            /* 允許長文本換行 */
+        }
+
+        /* 確保標題不會溢出 */
+        .centered-title {
+            text-align: center;
+            padding: 0 10px;
+            word-wrap: break-word;
+            /* 允許長標題換行 */
+            margin: 10px 0;
+            /* 標準化邊距 */
+        }
+
+        /* 為主內容區域添加一些底部間距 */
+        main {
+            padding-bottom: 30px;
+        }
+    </style>
 </head>
 
 <body>
@@ -47,7 +209,7 @@
             <img src="../images/b5096421-d1d0-4447-8998-31f9eaafa695.jpg" alt="遊戲頁面照片" class="image-banner" />
         </section>
 
-        <a href="slot.html" class="article-link">
+        <a href="slot.html" class="card-link">
             <article>
                 <h2 class="centered-title">🎰拉霸機🎰</h2>
                 <hr>
@@ -57,20 +219,20 @@
                 <p class="date-right"><time datetime="2025-4-14">2025年4月14日</time></p>
             </article>
         </a>
-
-        <!-- 空白範本 - 可以複製用於新增更多遊戲 -->
-        <!-- 
-        <a href="game-link.html" class="article-link">
+        <a href="memory.html" class="card-link">
             <article>
-                <h2 class="centered-title">遊戲名稱</h2>
+                <h2 class="centered-title">🐍貪吃蛇🐍</h2>
                 <hr>
                 <p class="text-center">
-                    <strong>遊戲描述</strong>
+                    <strong>
+                        蛇只想吃東西，而我只想寫好這個遊戲 !! 🐍💕
+                    </strong>
                 </p>
-                <p class="date-right"><time datetime="日期">發布日期</time></p>
+                <p class="date-right"><time datetime="2025-5-10">2025年5月10日</time></p>
             </article>
         </a>
-        -->
+
+        
     </main>
 
     <!-- Footer Section -->
