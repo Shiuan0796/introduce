@@ -11,6 +11,53 @@
   <link rel="stylesheet" href="css/simple.css">
 
   <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+  .pdf-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.pdf-item {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.pdf-item:hover {
+  transform: scale(1.03);
+  background-color: #e6f2ff;
+}
+.pdf-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* 水平置中 */
+  gap: 20px;
+  padding: 40px 20px;
+}
+
+.pdf-item {
+  width: 280px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center; /* 文字置中 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.pdf-item:hover {
+  transform: scale(1.03);
+  background-color: #e6f2ff;
+}
+
+</style>
 
 </head>
 
@@ -25,7 +72,39 @@
       <a href="game/game.html">Fun!</a>
     </nav>
   </header>
-  
+  <h1 style="text-align: center;">課程學習成果</h1>
+  <section class="pdf-container">
+  <div class="pdf-item" onclick="openPDF('pdf/12-許筑瑄-外匯投資學習歷程.pdf')">
+    <h3>外匯投資學習歷程</h3>
+    <p>了解不同匯率與國際投資策略。</p>
+  </div>
+
+  <div class="pdf-item" onclick="openPDF('pdf/12許筑瑄-專題實作-學習歷程檔案.pdf')">
+    <h3>專題實作：電子商務行銷</h3>
+    <p>比較各大電商平台的行銷策略。</p>
+  </div>
+
+  <div class="pdf-item" onclick="openPDF('pdf/12-許筑瑄-影像處理-學習歷程檔案.pdf')">
+    <h3>影像處理作品集</h3>
+    <p>Photoshop 製作裂化文字、畫中畫等作品。</p>
+  </div>
+
+  <div class="pdf-item" onclick="openPDF('pdf/12-許筑瑄-響應式網頁-學習歷程檔案.pdf')">
+    <h3>響應式網頁設計</h3>
+    <p>學習 CSS 彈性排版與媒體查詢。</p>
+  </div>
+
+  <div class="pdf-item" onclick="openPDF('pdf/12-網頁設計-學習歷程檔案.pdf')">
+    <h3>網頁設計歷程</h3>
+    <p>從 HTML 基礎到商業網站設計經驗分享。</p>
+  </div>
+</section>
+<script>
+  function openPDF(filePath) {
+    window.open(filePath, '_blank');
+  }
+</script>
+
     
  
 
