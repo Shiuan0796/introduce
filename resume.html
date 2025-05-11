@@ -34,19 +34,20 @@
   background-color: #e6f2ff;
 }
 .pdf-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* 水平置中 */
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 每排 3 個 */
+  gap: 40px;
+  max-width: 1000px;     /* 最大寬度 */
+  margin: 0 auto;         /* ←←← 讓整個容器置中 */
   padding: 40px 20px;
 }
 
+
 .pdf-item {
-  width: 280px;
   background-color: #f9f9f9;
   border-radius: 12px;
   padding: 20px;
-  text-align: center; /* 文字置中 */
+  text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: transform 0.2s ease, background-color 0.2s ease;
@@ -55,6 +56,31 @@
 .pdf-item:hover {
   transform: scale(1.03);
   background-color: #e6f2ff;
+}
+.pdf-item {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pdf-item h3 {
+  margin: 0;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center; /* 標題置中 */
+  margin-bottom: 1em; /* 與內文間隔一行 */
+}
+
+.pdf-item p {
+  margin: 0;
+  line-height: 1.8;
+  text-align: justify; /* 左右對齊 */
 }
 
 </style>
@@ -72,31 +98,33 @@
       <a href="game/game.html">Fun!</a>
     </nav>
   </header>
+  
   <h1 style="text-align: center;">課程學習成果</h1>
+  
   <section class="pdf-container">
   <div class="pdf-item" onclick="openPDF('pdf/12-許筑瑄-外匯投資學習歷程.pdf')">
-    <h3>外匯投資學習歷程</h3>
-    <p>了解不同匯率與國際投資策略。</p>
+    <h3 class="title">外匯投資</h3>
+    <p>我利用放假時間去研究外匯學習如何投資理財，並觀察出近年來的匯率走勢與分析。</p>
   </div>
 
   <div class="pdf-item" onclick="openPDF('pdf/12許筑瑄-專題實作-學習歷程檔案.pdf')">
-    <h3>專題實作：電子商務行銷</h3>
-    <p>比較各大電商平台的行銷策略。</p>
+    <h3 class="title">專題實作：策略為王</h3>
+    <p>我透過「電子商務平台」的快速發展對於零售業者的行銷方式與消費者的消費習慣所造成的影響，並帶入幾家商業平台針對此專題進行研究探討。</p>
   </div>
 
   <div class="pdf-item" onclick="openPDF('pdf/12-許筑瑄-影像處理-學習歷程檔案.pdf')">
-    <h3>影像處理作品集</h3>
-    <p>Photoshop 製作裂化文字、畫中畫等作品。</p>
+    <h3 class="title">影像處理作品集</h3>
+    <p>生活中總會看到許多不同的圖片效果，以前的我總覺得他們好厲害還可以成為一份工作，現在的我可以用簡單又快速的方法教大家如何製作，只要你學會這些技巧分分鐘鐘就能變身成網紅，不要將辛苦錢送人啦!!</p>
   </div>
 
   <div class="pdf-item" onclick="openPDF('pdf/12-許筑瑄-響應式網頁-學習歷程檔案.pdf')">
-    <h3>響應式網頁設計</h3>
-    <p>學習 CSS 彈性排版與媒體查詢。</p>
+    <h3 class="title">響應式網頁設計</h3>
+    <p>隨著移動設備的普及，響應式網站設計成為了現代網站開發的核心。這種設計風格能夠確保無論是在桌面電腦、平板還是手機上使用，用戶都能享受到一致的良好體驗。</p>
   </div>
 
   <div class="pdf-item" onclick="openPDF('pdf/12-網頁設計-學習歷程檔案.pdf')">
-    <h3>網頁設計歷程</h3>
-    <p>從 HTML 基礎到商業網站設計經驗分享。</p>
+    <h3 class="title">網頁設計歷程</h3>
+    <p>網頁設計大解密!!! 很多人都認為網頁設計要寫很多程式碼來設計許多不同的程式? NO~NO~NO~簡直大錯特錯!! 你相信網頁設計可以用來製造網頁行銷嗎? 來看看我的小檔案讓我來為你解答吧~</p>
   </div>
 </section>
 <script>
